@@ -1,2 +1,5 @@
     </string>
+    <string name="open_in_firefox">Open in Firefox</string>
+    <string name="loading">Loading&#8230;</string>
+    <string name="not_installed">Firefox is not installed</string>
 </resources>

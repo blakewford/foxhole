@@ -20,6 +20,8 @@ if [ $# = 3 ]; then
 	rm temp.strings
 	cp -f combined_activity.java ./src/${1//./\/}/FoxholeActivity.java
 	cp -f combined_support.java ./src/${1//./\/}/WebAppManifest.java
+	mkdir ./res/menu
+	cp -f ../droid/options.xml ./res/menu/options.xml
 	cp -f combined.xml ./res/values/strings.xml
 	rm combined_activity.java
 	rm combined_support.java
