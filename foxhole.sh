@@ -1,10 +1,12 @@
 #!/bin/bash
 if [ $# = 3 ]; then
 	echo "Copy and expand webapp..."
-	cp -fr $3/gaia/profile/webapps/$1/ $1
+	cp -fr $3/$1/ $1
 	cd $1
+if [ -e application.zip ]; then
 	unzip -o application.zip -d assets
 	rm application.zip manifest.webapp
+fi
 	echo "Create new Android project..."
 	$2/tools/android create project --target android-10 --name Foxhole --path . --activity FoxholeActivity --package $1
 	echo "Add Foxhole source..."
