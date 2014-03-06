@@ -30,6 +30,8 @@ fi
 	rm combined.xml
 	cp -f ../droid/gson-2.2.2.jar ./libs
 	cp -f ../droid/main.xml ./res/layout/
+	mkdir ./res/drawable
+	cp -f ../droid/icon.png ./res/drawable/
 	echo "Build APK..."
 	ant debug
 	echo "Finished!"
