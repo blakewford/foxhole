@@ -5,16 +5,9 @@
     android:layout_height="fill_parent"
     android:background="#000000"
     android:gravity="center_vertical|center_horizontal">
-    <!-- Basic cheat for phone status bar -->
-    <View
-    android:layout_width="fill_parent"
-    android:layout_height="25dp"
-    android:background="#000000"/>
-    <!-- HVGA Equivalent -->
     <WebView 
         android:id="@+id/foxhole_container"
-        android:layout_width="320dp" 
-        android:layout_height="460dp"/>
-   <!-- Should be android:layout_height="480dp", compensating for FFOS status bar? -->
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"/>
 </LinearLayout>
 

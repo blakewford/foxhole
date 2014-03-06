@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Toast;
 import android.net.Uri;
 import android.content.Intent;
@@ -42,12 +43,27 @@ public class FoxholeActivity extends Activity{
 			mLaunchPath = manifest.getLaunchPath();
 	        
 	        WebView container = (WebView) findViewById(R.id.foxhole_container);
+		container.setWebViewClient(new WebViewClient(){
+			public boolean shouldOverrideUrlLoading(WebView view, String url){
+				view.loadUrl(url);
+				return true;
+			}
+		});
 	        container.getSettings().setJavaScriptEnabled(true);
 	        container.loadUrl("file:///android_asset"+mLaunchPath);
 		} catch (Exception e) {
 			//Do nothing!
 		}
     }
+
+	@Override
+	public void onBackPressed() {
+		WebView webView = ((WebView) findViewById(R.id.foxhole_container));
+		if(webView.getUrl().equals("file:///android_asset"+mLaunchPath))
+			super.onBackPressed();
+		else
+			webView.loadUrl("file:///android_asset"+mLaunchPath);
+	}
 	
 	@Override
 	public boolean onCreateOptionsMenu (Menu menu){
